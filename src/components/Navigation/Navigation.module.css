@@ -1,0 +1,16 @@
+.list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  border-bottom: 2px solid #2c3452;
+}
+.link {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
+.active {
+  color: rgb(3, 35, 194);
+  text-decoration: underline;
+}

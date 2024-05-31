@@ -1,0 +1,10 @@
+.list {
+  margin-top: 10px;
+}
+.content {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #c5e9fc;
+  text-align-last: left;
+  font-size: 12px;
+}

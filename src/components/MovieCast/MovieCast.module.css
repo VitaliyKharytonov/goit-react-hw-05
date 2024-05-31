@@ -1,0 +1,19 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.item {
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #c8d9f1;
+}
+.image {
+  height: 150px;
+}
+.name {
+  font-size: 10px;
+}

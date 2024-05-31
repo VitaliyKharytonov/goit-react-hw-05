@@ -1,0 +1,14 @@
+.container {
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.link {
+  text-decoration: none;
+}
+.title {
+  color: rgb(14, 4, 146);
+  background-color: #aeaeae;
+  text-align: center;
+}

@@ -1,0 +1,21 @@
+.loader {
+  margin-top: 10px;
+  justify-content: center;
+}
+.container {
+  text-align: center;
+}
+.list {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.item {
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.link {
+  color: blue;
+  text-decoration: none;
+}
