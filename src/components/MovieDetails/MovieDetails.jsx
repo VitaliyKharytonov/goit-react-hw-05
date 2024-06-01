@@ -5,7 +5,6 @@ const defaultImg = 'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/
 
 export default function MovieDetails({movie}) {
     const { title, overview, vote_average, poster_path, genres, release_date } = movie;
-    console.log(movie);
 
     return (
         <section className={css.section}>

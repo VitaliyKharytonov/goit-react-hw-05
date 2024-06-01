@@ -4,23 +4,22 @@ import SearchBar from '../../components/SearchBar/SearchBar'
 import { getMovieSearch } from '../../movie-api'
 import { Circles } from 'react-loader-spinner'
 import css from './MoviesPage.module.css'
+import { useSearchParams } from 'react-router-dom'
 
 
 export default function MoviesPage() {
     const [movies, setMovies] = useState([]);
-    const [searchQuery, setSearchQuery] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
-
+    const [searchParams, setSearchParams] = useSearchParams();
+    console.log(searchParams.get("query"));
     useEffect(() => {
-        if (searchQuery.trim() === "") {
-            return;
-        }
+        // 
         async function fetchMovies() {
             try {
                 setIsLoading(true);
                 setIsError(false);
-                const data = await getMovieSearch(searchQuery);
+                const data = await getMovieSearch(searchParams.get("query"));
                 setMovies(data.results)
             } catch {
             setIsError(true);
@@ -30,10 +29,11 @@ export default function MoviesPage() {
          }
 
         fetchMovies()
-    }, [searchQuery])
+    }, [searchParams])
 
     const handleSearch = async (query) => {
-        setSearchQuery(query);
+        searchParams.set('query', query)
+        setSearchParams(searchParams)
     };
     
     return (

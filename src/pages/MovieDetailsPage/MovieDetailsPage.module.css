@@ -3,7 +3,9 @@
   justify-content: center;
 }
 .container {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .list {
   display: flex;
@@ -11,6 +13,7 @@
   justify-content: center;
 }
 .item {
+  margin: 5px 0;
   padding: 5px 10px;
   border: 1px solid black;
   border-radius: 10px;

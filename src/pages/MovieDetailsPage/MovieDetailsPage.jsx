@@ -1,5 +1,5 @@
-import { useParams, Link, Outlet} from "react-router-dom"
-import { useEffect, useState } from 'react'
+import { useParams, Link, Outlet, useLocation} from "react-router-dom"
+import { Suspense, useEffect, useRef, useState } from 'react'
 import MovieDetails from '../../components/MovieDetails/MovieDetails'
 import { getMovieBuId } from '../../movie-api'
 import { Circles } from 'react-loader-spinner'
@@ -11,6 +11,9 @@ export default function MoviesDetailsPage() {
     const [movie, setMovie] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
+
+    const location = useLocation();
+    const backLinkRef=useRef(location.state ?? '/movies')
 
     useEffect(() => {
         async function fetchMovies() {
@@ -33,6 +36,10 @@ export default function MoviesDetailsPage() {
     return (
         <div className={css.container}>
             {isError && <p>Oops! There was an error! Try again!</p>}
+
+            <div className={css.item}>
+                <Link to={backLinkRef.current} className={css.link}>Go Back</Link>
+            </div>
 
             <Circles
                 height="40"
@@ -57,7 +64,9 @@ export default function MoviesDetailsPage() {
                     </li>
                 </ul>
                 
-                <Outlet/>
+                <Suspense>
+                    <Outlet/>
+                </Suspense>
             </div>
         </div>
     )
