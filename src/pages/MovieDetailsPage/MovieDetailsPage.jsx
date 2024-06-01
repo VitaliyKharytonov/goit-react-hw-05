@@ -37,9 +37,9 @@ export default function MoviesDetailsPage() {
         <div className={css.container}>
             {isError && <p>Oops! There was an error! Try again!</p>}
 
-            <div className={css.item}>
+            {!isLoading && <div className={css.item}>
                 <Link to={backLinkRef.current} className={css.link}>Go Back</Link>
-            </div>
+            </div>}
 
             <Circles
                 height="40"
@@ -52,7 +52,7 @@ export default function MoviesDetailsPage() {
 
             {movie && <MovieDetails movie={movie} />}
 
-            <div>
+            {!isLoading && <div>
                 <h3>Additional information</h3>
             
                 <ul className={css.list}>
@@ -67,7 +67,7 @@ export default function MoviesDetailsPage() {
                 <Suspense>
                     <Outlet/>
                 </Suspense>
-            </div>
+            </div>}
         </div>
     )
 }

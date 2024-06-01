@@ -12,9 +12,8 @@ export default function MoviesPage() {
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
     const [searchParams, setSearchParams] = useSearchParams();
-    console.log(searchParams.get("query"));
+    
     useEffect(() => {
-        // 
         async function fetchMovies() {
             try {
                 setIsLoading(true);
